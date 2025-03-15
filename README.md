@@ -7,28 +7,22 @@ This guide outlines the process of using Automated Machine Learning (AutoML) in 
 ### 1. Provision an Azure Machine Learning Workspace
 - Start by provisioning an Azure Machine Learning workspace in the Azure portal.
 
-
-### 2. Create an Azure Machine Learning resource
 - Search for "Machine Learning" in the Azure portal and create a new Azure Machine Learning resource.
 
-### 3. Access Azure Machine Learning Studio
 - Navigate to the Azure Machine Learning Studio to manage your machine learning resources.
 
-### 4. Select "Automated ML"
 - In Azure Machine Learning Studio, select the "Automated ML" option.
 
-### 5. Configure the Job
 - Set a descriptive name and description for your job.
 
-### 6. Select the Task Type. 
 - Choose the task type. For this project, select **Regression**.
 
-### 7. Choose the Dataset
+### 2. Choose the Dataset
 - Use the `bike-rentals` dataset, which is available [here](https://aka.ms/bike-rentals).
 
 <img src="./assets/dataset.png" /> 
 
-### 8. Configure Task Settings
+### 3. Configure Task Settings
 - Adjust the task settings, including:
     - Metric definitions
     - Allowed models
@@ -62,7 +56,7 @@ Task settings:
         Test dataset: None
 ```
 
-### 9. Set Compute Characteristics
+### 4. Set Compute Characteristics
 - Configure the compute settings for model training as shown below:
 
 ```
@@ -75,10 +69,10 @@ Compute:
     Number of instances: 1
 ```
 
-### 10. Submit the Training Job
+### 5. Submit the Training Job
 - After configuring the settings, submit the training job to begin the model training process.
 
-### 11. Trained Models
+### 6. Trained Models
 - Once the AutoML job is complete, review the best model trained by the system.
 
 - In this training, three models were generated:
@@ -88,36 +82,37 @@ Compute:
 
 <img src="./assets/trained_models.png" /> 
 
-### 12. Identify the Best Model
+### 7. Identify the Best Model
 - The best model was the `VotingEnsemble`, which had the best training performance.
 
-### 13. Review the Data Transformation
+### 8. Review the Data Transformation
 - The following diagram illustrates the data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that Automated ML applied to generate this particular model.
 
 <img src="./assets/data_processing.png" /> 
 
-### 14. Review Model Metrics
+### 9. Review Model Metrics
 - In the "Metrics" tab, you can view all metrics related to the trained model and the data processing:
 
 <img src="./assets/model_metrics.png" />
 
-### 15. Analyze Residuals
+### 10. Analyze Residuals
 - The "Residuals" graph shows the distribution of errors made by the model:
 
 <img src="./assets/residuals.png" />
 
-### 16. Compare Predicted vs. True Values
+### 11. Compare Predicted vs. True Values
 - The graph below compares the predicted values with the true values from the test set:
 
-<img src="./assets/predictedValue_x_trueValue.png" />
+<img src="./assets/predictedValue_x_trueValue.png" title="Comparation of predicted and true values graphs" />
+<div align="center">Comparation of predicted and true values graphs</div>
 
-### 17. Deploy the Best Model
+### 12. Deploy the Best Model
 - With the best model selected, you can deploy it. In this tutorial the `Real-time endpoint` option was used to deploy the model.
 
-### 18. Test the Deployed Model
+### 13. Test the Deployed Model
 - Once the deployment is complete, you can test the model by sending requests to the `Real-time endpoint`.
 
-### 19. Input Data for Testing
+### 14. Input Data for Testing
 - To test the endpoint, replace the sample JSON input with your own data. Below is an example of the input used:
 
 Input:
@@ -146,7 +141,7 @@ Input:
 }
 ```
 
-### 20. Model Output
+### 15. Model Output
 - The model will output a predicted number of bike rentals based on the input features, like the value shown below:
 
 Output:
@@ -155,5 +150,5 @@ Output:
   353.571393707175
 ]
 ```
-### 21. Model Summary
+### 16. Model Summary
 - In summary, this model predicts the number of bicycle rentals on a given day based on features such as season, weather, temperature, humidity, and time of day.
